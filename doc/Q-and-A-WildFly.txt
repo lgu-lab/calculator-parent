@@ -1,0 +1,8 @@
+https://developer.jboss.org/thread/276645
+
+In numerous places, I see comments and documentation to the effect that a beans.xml file is no longer necessary. 
+That is not the case. 
+According to the JSR, a bean archive must have a beans.xml file. 
+Additionally, any archive that contains classes that use injected beans must also have a beans.xml file, even if it is empty. 
+In my case, my EJB archive had a beans.xml, but the web application war file did not. 
+Adding the beans.xml file to the war solved the problem.
