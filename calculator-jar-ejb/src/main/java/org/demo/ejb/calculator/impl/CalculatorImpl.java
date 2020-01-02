@@ -10,7 +10,8 @@ import org.demo.ejb.calculator.CalculatorLocal;
 @Startup // EJB 3.1
 public class CalculatorImpl implements CalculatorLocal {
 
-	private int version = 0;
+	private long callCounter = 0;
+	
 	/**
 	 * Constructor.
 	 * The class must have a default public constructor.
@@ -21,34 +22,35 @@ public class CalculatorImpl implements CalculatorLocal {
 
 	@PostConstruct
 	void init() {
-		version = 1;
+		callCounter = 0;
 	}
 
-	public int getVersion() {
-		return version;
+	@Override
+	public long getCallCounter() {
+		return callCounter;
 	}
 	
 	@Override
 	public long add(long i, long j) {
-
+		callCounter++;
 		return (i + j);
 	}
 
 	@Override
 	public double divide(long i, long j) {
-
+		callCounter++;
 		return ((double) i / j);
 	}
 
 	@Override
 	public long multiply(long i, long j) {
-
+		callCounter++;
 		return (i * j);
 	}
 
 	@Override
 	public long subtract(long i, long j) {
-
+		callCounter++;
 		return (i - j);
 	}
 }

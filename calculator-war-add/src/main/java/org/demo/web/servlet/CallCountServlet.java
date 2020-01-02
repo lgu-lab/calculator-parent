@@ -15,27 +15,26 @@ import org.demo.ejb.calculator.CalculatorLocal;
 /**
  * Servlet
  */
-@WebServlet(urlPatterns = "/add")
-public class AddServlet extends HttpServlet {
+@WebServlet(urlPatterns = "/count")
+public class CallCountServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
-	@EJB // @EJB can only inject "EJB" ( @Inject can inject any bean )
+	@EJB
 	private CalculatorLocal calculator;
 
 	/**
 	 * Default constructor.
 	 */
-	public AddServlet() {
-		super();
+	public CallCountServlet() {
 	}
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
-		long r = calculator.add(1, 2);
-		out.append("add servlet : r = " + r);
+		long r = calculator.getCallCounter();
+		out.append("Call counter = " + r);
 	}
 
 }

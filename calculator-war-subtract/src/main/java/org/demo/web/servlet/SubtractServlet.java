@@ -15,18 +15,19 @@ import org.demo.ejb.calculator.CalculatorLocal;
 /**
  * Servlet
  */
-@WebServlet(urlPatterns = "/add")
-public class AddServlet extends HttpServlet {
+@WebServlet(urlPatterns = "/subtract")
+public class SubtractServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
 	@EJB // @EJB can only inject "EJB" ( @Inject can inject any bean )
-	private CalculatorLocal calculator;
+	//private CalculatorImpl calculator;  // Use the implementation directly : compile OK but deployment error
+	private CalculatorLocal calculator; 
 
 	/**
 	 * Default constructor.
 	 */
-	public AddServlet() {
+	public SubtractServlet() {
 		super();
 	}
 
@@ -34,7 +35,7 @@ public class AddServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
-		long r = calculator.add(1, 2);
+		long r = calculator.subtract(22, 10);
 		out.append("add servlet : r = " + r);
 	}
 
