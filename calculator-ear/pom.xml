@@ -10,6 +10,20 @@
 	<artifactId>calculator-ear</artifactId>
 	<packaging>ear</packaging>
 
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>3.0.2</version>
+				<configuration>
+					<applicationId>calculator-ear</applicationId> <!-- tag "display-name" in "application.xml" -->
+					<applicationName>calculator-ear</applicationName> <!-- tag "application-name" in "application.xml" -->
+					<!-- <generateApplicationXml>false</generateApplicationXml> --> <!-- tell plugin NOT to generate descriptor -->
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 	<dependencies>
 
@@ -35,5 +49,5 @@
 		</dependency>
 
 	</dependencies>
-	
+
 </project>

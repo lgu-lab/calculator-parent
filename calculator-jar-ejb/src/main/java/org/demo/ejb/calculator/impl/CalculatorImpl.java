@@ -1,14 +1,19 @@
 package org.demo.ejb.calculator.impl;
 
 import javax.annotation.PostConstruct;
+import javax.ejb.Local;
+import javax.ejb.Remote;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
 
 import org.demo.ejb.calculator.CalculatorLocal;
+import org.demo.ejb.calculator.CalculatorRemote;
 
-@Singleton // EJB 3.1
+@Singleton(name="calculator") // EJB 3.1
+@Local({ CalculatorLocal.class })
+@Remote({CalculatorRemote.class})
 @Startup // EJB 3.1
-public class CalculatorImpl implements CalculatorLocal {
+public class CalculatorImpl implements CalculatorLocal, CalculatorRemote {
 
 	private long callCounter = 0;
 	

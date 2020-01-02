@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.demo.ejb.calculator.CalculatorLocal;
+import org.demo.ejb.calculator.CalculatorRemote;
 
 /**
  * Servlet
@@ -20,9 +20,10 @@ public class SubtractServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
-	@EJB // @EJB can only inject "EJB" ( @Inject can inject any bean )
+	@EJB // @EJB can only inject "EJB" ( @Inject can inject any type of bean )
 	//private CalculatorImpl calculator;  // Use the implementation directly : compile OK but deployment error
-	private CalculatorLocal calculator; 
+	// private CalculatorLocal calculator;  // OK, works fine
+	private CalculatorRemote calculator;
 
 	/**
 	 * Default constructor.

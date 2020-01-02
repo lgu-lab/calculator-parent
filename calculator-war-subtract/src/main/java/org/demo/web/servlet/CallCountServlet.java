@@ -21,12 +21,14 @@ public class CallCountServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@EJB
-	private CalculatorLocal calculator;
+	//private CalculatorImpl calculator; // Use EJB implementation directly ==> Deployment error (interface required)
+	private CalculatorLocal calculator; // Local interface
 
 	/**
 	 * Default constructor.
 	 */
 	public CallCountServlet() {
+		super();
 	}
 
 	@Override
