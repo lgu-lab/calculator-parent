@@ -17,9 +17,52 @@
 				<artifactId>maven-ear-plugin</artifactId>
 				<version>3.0.2</version>
 				<configuration>
-					<applicationId>calculator-ear</applicationId> <!-- tag "display-name" in "application.xml" -->
-					<applicationName>calculator-ear</applicationName> <!-- tag "application-name" in "application.xml" -->
+					<applicationId>calculator-ear</applicationId> <!-- tag "display-name" in "META-INF\application.xml" -->
+					<applicationName>calculator-ear</applicationName> <!-- tag "application-name" in "META-INF\application.xml" -->
 					<!-- <generateApplicationXml>false</generateApplicationXml> --> <!-- tell plugin NOT to generate descriptor -->
+					
+					<!-- To obtain "<library-directory>lib</library-directory>" in "META-INF\application.xml"  -->
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+					
+					<modules>
+
+						<!-- EJB -->
+<!-- 						<ejbModule>
+							<groupId>org.demo</groupId>
+							<artifactId>calculator-jar-ejb</artifactId>
+						</ejbModule>
+ -->
+						<!-- WEB (WAR) -->
+<!-- 						<webModule>
+							<groupId>org.demo</groupId>
+							<artifactId>calculator-war-add</artifactId>
+						</webModule>
+						<webModule>
+							<groupId>org.demo</groupId>
+							<artifactId>calculator-war-subtract</artifactId>
+						</webModule>
+ -->
+ <!-- 
+you don’t need to define webModule and ejbModule in your ear plugin configuration. By convention, 
+all ear dependencies will be deployed in the resulting .ear (wars and ejbs under the /, using the default artifact file name, 
+jars under the default bundle dir (/ ,if you haven’t set it to lib/)
+I generally only configure the webModule’s contextRoot (ex. /web), since by default it’d be /web-X.Y.Z-(SNAPSHOT)
+ -->
+						<!-- SHARED LIBRARIES (JAR) ( "provided" ) -->
+				<!-- 
+						<jarModule>
+							<groupId>org.apache.commons</groupId>
+							<artifactId>commons-lang3</artifactId>
+							<bundleDir>lib</bundleDir>  
+						</jarModule>
+						<jarModule>
+							<groupId>org.apache.commons</groupId>
+							<artifactId>commons-text</artifactId>
+							<bundleDir>lib</bundleDir>  
+						</jarModule>
+				 -->
+					</modules>
+					
 				</configuration>
 			</plugin>
 		</plugins>
@@ -27,12 +70,7 @@
 
 	<dependencies>
 
-<!-- 		<dependency>
-			<groupId>org.demo</groupId>
-			<artifactId>calculator-util-jar</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
- -->
+		<!-- EJB -->
 		<dependency>
 			<groupId>org.demo</groupId>
 			<artifactId>calculator-jar-ejb</artifactId>
@@ -40,13 +78,13 @@
 			<type>ejb</type>
 		</dependency>
 
+		<!-- WAR -->
 		<dependency>
 			<groupId>org.demo</groupId>
 			<artifactId>calculator-war-add</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<type>war</type>
 		</dependency>
-
 		<dependency>
 			<groupId>org.demo</groupId>
 			<artifactId>calculator-war-subtract</artifactId>
@@ -54,6 +92,24 @@
 			<type>war</type>
 		</dependency>
 
+		<!-- SHARED LIBRARIES -->
+		<dependency> 
+			<groupId>org.demo</groupId> 
+			<artifactId>calculator-util-jar</artifactId>
+			<version>0.0.1-SNAPSHOT</version> 
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.8.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-text</artifactId>
+			<version>1.8</version>
+		</dependency>
+		
 	</dependencies>
 
 </project>

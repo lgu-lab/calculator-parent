@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringUtils;
 import org.demo.util.Util;
 
 /**
@@ -33,6 +34,7 @@ public class VerServlet extends HttpServlet {
 			throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 		out.append("Version : " + Util.getVersion() );
+		out.append("Hello capitalized : " + StringUtils.capitalize("hello"));
 	}
 
 }
