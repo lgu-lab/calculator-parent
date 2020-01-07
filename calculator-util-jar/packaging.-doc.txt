@@ -1,0 +1,9 @@
+
+If packaged as a single JAR in EAR 
+and not in WAR :
+. compilation and packaging : OK
+. execution error :
+  java.lang.NoClassDefFoundError: org/demo/util/Util
+  
+=> Must be packaged in each WAR or EJB artifact 
+   (classical Maven dependency)

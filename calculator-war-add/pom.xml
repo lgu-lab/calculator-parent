@@ -16,6 +16,15 @@
 
 		<dependency>
 			<groupId>org.demo</groupId>
+			<artifactId>calculator-util-jar</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<!-- 
+			<scope>provided</scope>
+			 -->
+		</dependency>
+
+		<dependency>
+			<groupId>org.demo</groupId>
 			<artifactId>calculator-jar-ejb</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<scope>provided</scope>
