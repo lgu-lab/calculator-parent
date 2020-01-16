@@ -1,0 +1,10 @@
+
+Docs JBoss :
+
+  https://docs.jboss.org/author/display/AS72/EJB+invocations+from+a+remote+client+using+JNDI
+
+  https://docs.jboss.org/author/display/AS71/Remote+EJB+invocations+via+JNDI+-+EJB+client+API+or+remote-naming+project
+
+autres docs :
+  
+  https://blog.akquinet.de/2014/09/26/jboss-eap-wildfly-three-ways-to-invoke-remote-ejbs/ 

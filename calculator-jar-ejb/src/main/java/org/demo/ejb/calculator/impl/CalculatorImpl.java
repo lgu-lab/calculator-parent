@@ -9,7 +9,18 @@ import javax.ejb.Startup;
 import org.demo.ejb.calculator.CalculatorLocal;
 import org.demo.ejb.calculator.CalculatorRemote;
 
-@Singleton(name="calculator") // EJB 3.1
+/*
+ * "mappedName" : cf https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/developing_ejb_applications/index
+ * 
+ * The @EJB annotation also has a mappedName() attribute. 
+ * The specification leaves this as vendor specific metadata, 
+ * but JBoss EAP recognizes mappedName() as the global JNDI name of the EJB you are referencing. 
+ * If you have specified a mappedName(), 
+ * then all other attributes are ignored and this global JNDI name is used for binding.
+ * 
+ */
+//@Singleton(name="calculator", mappedName="calculator") // EJB 3.1
+@Singleton(mappedName="calculator") // EJB 3.1
 @Local({ CalculatorLocal.class })
 @Remote({CalculatorRemote.class})
 @Startup // EJB 3.1

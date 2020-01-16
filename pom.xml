@@ -15,6 +15,7 @@
 		<module>calculator-war-add</module>
 		<module>calculator-war-subtract</module>
 		<module>calculator-util-jar</module>
+		<module>calculator-jar-ejb-client</module>
 	</modules>
 
 	<build>
