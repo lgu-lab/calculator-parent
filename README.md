@@ -15,7 +15,8 @@ The EAR packaging containing
 
 ### calculator-jar-ejb
 Contains the **Calculator Singleton EJB**  with 2 interfaces (Local and Remote)
-
+This EJB is used by components located in this project (EAR) 
+but also by external components located in "hello-parent" project (other EAR)
 
 ### calculator-war-add
 Very simple Web Application using the **Calculator EJB** located in the same EAR
